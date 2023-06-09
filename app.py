@@ -51,7 +51,7 @@ pickle.dump(classes,open('classes.pkl','wb'))
 
 
 
-model = load_model('/model/chatbot_model.h5')
+model = load_model('chatbot_model.h5')
 
 
 ## end keras chat brain
@@ -87,7 +87,8 @@ class Storage:
         print (Storage.old_answers)
 
 
-app = Flask(__name__)
+app = Flask(_name_)
+
 
 def bot_response(userText):
 
@@ -206,7 +207,7 @@ def get_bot_response():
     userText = request.args.get('msg')    
     
     res,tag = chatbot_response(userText)
-    with open( "/content/drive/MyDrive/Colab Notebooks/Chatbot/logfile.csv", "a" ) as logfile:
+    with open( "logfile.csv", "a" ) as logfile:
         logfile.write(str(now)+","+userText+","+res+","+tag+","+"\n")
     print ('Saya pilih ini : ', res,tag)
     #return res + '<p style="font-size:8pt;">tag: ' + tag + '</p>'
@@ -214,6 +215,6 @@ def get_bot_response():
 
 
 
-if __name__ == '__main__':
+if _name_ == '_main_':
   app.run()
 #    app.run(debug=True)
